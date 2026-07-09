@@ -1,170 +1,73 @@
-// ==========================
-// FETA Fashion Main Script
-// ==========================
+// FETA Fashion JavaScript
 
 
-// Loading Screen
+// Header shadow on scroll
 
-window.addEventListener("load",()=>{
+window.addEventListener("scroll", function(){
 
-const loader=document.getElementById("loader");
+    const header = document.querySelector(".header");
 
-if(loader){
 
-setTimeout(()=>{
+    if(window.scrollY > 50){
 
-loader.style.display="none";
+        header.style.boxShadow =
+        "0 5px 20px rgba(0,0,0,0.15)";
 
-},800);
+    }else{
 
-}
+        header.style.boxShadow =
+        "0 2px 15px rgba(0,0,0,0.08)";
+
+    }
 
 });
 
 
 
 
-
-// ==========================
-// Cart System
-// ==========================
-
-
-let cart =
-JSON.parse(localStorage.getItem("fetaCart")) || [];
-
-
+// Simple cart message
 
 function addToCart(product){
 
-
-cart.push(product);
-
-
-localStorage.setItem(
-"fetaCart",
-JSON.stringify(cart)
-);
+    let cart =
+    JSON.parse(localStorage.getItem("fetaCart")) || [];
 
 
-updateCartCount();
+    cart.push(product);
 
 
-alert(product+" added to your cart 🛒");
+    localStorage.setItem(
+        "fetaCart",
+        JSON.stringify(cart)
+    );
 
 
-}
-
-
-
-
-function updateCartCount(){
-
-
-let cartIcons=document.querySelectorAll(".cart-count");
-
-
-cartIcons.forEach(icon=>{
-
-icon.innerHTML=cart.length;
-
-});
-
+    alert(product + " added to cart 🛒");
 
 }
 
 
 
-updateCartCount();
 
-
-
-
-
-
-
-// ==========================
-// Wishlist System
-// ==========================
-
-
-let wishlist =
-JSON.parse(localStorage.getItem("fetaWishlist")) || [];
-
-
-
+// Simple wishlist message
 
 function addToWishlist(product){
 
 
-wishlist.push(product);
+    let wishlist =
+    JSON.parse(localStorage.getItem("fetaWishlist")) || [];
 
 
-localStorage.setItem(
-"fetaWishlist",
-JSON.stringify(wishlist)
-);
+    wishlist.push(product);
 
 
-
-updateWishlistCount();
-
-
-
-alert(product+" added to wishlist ❤️");
-
-}
+    localStorage.setItem(
+        "fetaWishlist",
+        JSON.stringify(wishlist)
+    );
 
 
-
-
-
-function updateWishlistCount(){
-
-
-let icons=document.querySelectorAll(".wishlist-count");
-
-
-icons.forEach(icon=>{
-
-icon.innerHTML=wishlist.length;
-
-});
-
-
-}
-
-
-
-updateWishlistCount();
-
-
-
-
-
-
-// ==========================
-// Search
-// ==========================
-
-
-function openSearch(){
-
-
-let search=
-prompt("Search FETA Fashion Collection:");
-
-
-
-if(search){
-
-
-alert(
-"We will search for: "+search
-);
-
-
-}
+    alert(product + " added to wishlist ❤️");
 
 
 }
@@ -173,161 +76,8 @@ alert(
 
 
 
-
-// ==========================
-// Newsletter
-// ==========================
-
-
-let newsletterForm=
-document.querySelector(".newsletter form");
-
-
-
-if(newsletterForm){
-
-
-newsletterForm.addEventListener(
-"submit",
-function(e){
-
-
-e.preventDefault();
-
-
-
-alert(
-"Thank you for joining FETA Fashion ❤️"
-);
-
-
-
-}
-
-);
-
-
-}
-
-
-
-
-
-
-
-
-// ==========================
-// Contact Form
-// ==========================
-
-
-let contactForm=
-document.querySelector(".contact-form form");
-
-
-
-if(contactForm){
-
-
-contactForm.addEventListener(
-"submit",
-function(e){
-
-
-e.preventDefault();
-
-
-alert(
-"Thank you! FETA Fashion will contact you soon."
-);
-
-
-
-}
-
-);
-
-
-}
-
-
-
-
-
-
-
-// ==========================
-// Scroll Animation
-// ==========================
-
-
-
-const sections =
-document.querySelectorAll(
-"section"
-);
-
-
-
-const observer =
-new IntersectionObserver(
-(entries)=>{
-
-
-entries.forEach(entry=>{
-
-
-if(entry.isIntersecting){
-
-
-entry.target.style.opacity="1";
-
-
-entry.target.style.transform=
-"translateY(0)";
-
-
-}
-
-
-
-});
-
-
-},
-{
-threshold:.15
-}
-
-);
-
-
-
-
-sections.forEach(section=>{
-
-
-section.style.opacity="0";
-
-section.style.transform=
-"translateY(40px)";
-
-
-section.style.transition=
-"0.8s ease";
-
-
-
-observer.observe(section);
-
-
-});
-
-
-
-
-
+// Newsletter/contact ready function
 
 console.log(
-"FETA Fashion Website Loaded Successfully 🚀"
+"FETA Fashion website ready 🚀"
 );
