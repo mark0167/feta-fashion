@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shopping Cart | FETA Fashion</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<div class="logo">
+FETA
+</div>
+
+
+<nav class="navbar">
+
+<a href="index.html">Home</a>
+
+<a href="shop.html">Shop</a>
+
+<a href="about.html">About</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+
+<div class="header-icons">
+
+<a href="wishlist.html">♡</a>
+
+<a href="cart.html">🛒</a>
+
+</div>
+
+
+</header>
+
+
+
+
+
+<section class="cart-section">
+
+
+<h1>
+Your Shopping Cart
+</h1>
+
+
+
+<div id="cart-items">
+
+
+</div>
+
+
+
+
+
+<div class="cart-summary">
+
+
+<h2>
+Order Summary
+</h2>
+
+
+<p>
+Subtotal:
+<span id="subtotal">
+ETB 0
+</span>
+</p>
+
+
+<p>
+Delivery:
+<span>
+ETB 200
+</span>
+</p>
+
+
+<hr>
+
+
+<h2>
+
+Total:
+<span id="total">
+ETB 200
+</span>
+
+</h2>
+
+
+
+<button class="main-btn">
+
+Proceed To Checkout
+
+</button>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+<div class="footer-logo">
+FETA
+</div>
+
+
+<p>
+Premium Fashion Store Ethiopia
+</p>
+
+
+</footer>
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+
+function displayCart(){
+
+
+let cart=JSON.parse(localStorage.getItem("fetaCart")) || [];
+
+
+let container=document.getElementById("cart-items");
+
+
+if(cart.length===0){
+
+container.innerHTML="<h3>Your cart is empty 🛒</h3>";
+
+return;
+
+}
+
+
+
+container.innerHTML="";
+
+
+
+let total=0;
+
+
+
+cart.forEach((item,index)=>{
+
+
+total += 2500;
+
+
+
+container.innerHTML += `
+
+
+<div class="cart-item">
+
+
+<h3>${item}</h3>
+
+
+<p>
+ETB 2,500
+</p>
+
+
+<button onclick="removeItem(${index})">
+
+Remove
+
+</button>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+
+document.getElementById("subtotal").innerHTML="ETB "+total;
+
+
+document.getElementById("total").innerHTML="ETB "+(total+200);
+
+
+
+}
+
+
+
+
+
+function removeItem(index){
+
+
+let cart=JSON.parse(localStorage.getItem("fetaCart")) || [];
+
+
+cart.splice(index,1);
+
+
+localStorage.setItem("fetaCart",JSON.stringify(cart));
+
+
+displayCart();
+
+
+}
+
+
+
+displayCart();
+
+
+</script>
+
+
+
+</body>
+
+</html>
