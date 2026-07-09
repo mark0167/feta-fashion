@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product | FETA Fashion</title>
+
+<meta name="description" content="View product details, sizes, colors and order from FETA Fashion.">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<div class="logo">
+FETA
+</div>
+
+
+<nav class="navbar">
+
+<a href="index.html">Home</a>
+
+<a href="shop.html">Shop</a>
+
+<a href="about.html">About</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+
+<div class="header-icons">
+
+<a href="wishlist.html">♡</a>
+
+<a href="cart.html">🛒</a>
+
+</div>
+
+</header>
+
+
+
+
+
+<section class="product-details">
+
+
+<div class="product-image">
+
+<img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3" alt="FETA Fashion Product">
+
+</div>
+
+
+
+
+
+<div class="product-info">
+
+
+<h1>
+Elegant Premium Dress
+</h1>
+
+
+<div class="rating">
+★★★★★
+</div>
+
+
+<h2>
+ETB 2,500
+</h2>
+
+
+
+<p>
+
+A premium fashion piece designed with elegance, comfort, and modern style. Perfect for special occasions and everyday confidence.
+
+</p>
+
+
+
+
+
+<h3>
+Select Size
+</h3>
+
+
+<div class="sizes">
+
+<button>S</button>
+
+<button>M</button>
+
+<button>L</button>
+
+<button>XL</button>
+
+</div>
+
+
+
+
+
+
+<h3>
+Select Color
+</h3>
+
+
+<div class="colors">
+
+<button class="black"></button>
+
+<button class="white"></button>
+
+<button class="gold"></button>
+
+</div>
+
+
+
+
+
+<div class="quantity">
+
+<button onclick="decreaseQuantity()">−</button>
+
+<span id="quantity">
+1
+</span>
+
+<button onclick="increaseQuantity()">+</button>
+
+
+</div>
+
+
+
+
+
+<button class="main-btn" onclick="addToCart('Elegant Premium Dress')">
+
+Add To Cart 🛒
+
+</button>
+
+
+<button class="wishlist-btn" onclick="addToWishlist('Elegant Premium Dress')">
+
+Add To Wishlist ❤️
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="product-extra">
+
+
+<h2>
+Product Information
+</h2>
+
+
+<p>
+
+Premium quality materials, carefully selected design, and a modern fashion experience from FETA Fashion.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="related">
+
+
+<h2>
+You May Also Like
+</h2>
+
+
+<div class="related-grid">
+
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+
+<h3>
+Premium Shoes
+</h3>
+
+</div>
+
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62">
+
+<h3>
+Designer Bag
+</h3>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<footer>
+
+<div class="footer-logo">
+FETA
+</div>
+
+<p>
+Premium Fashion Store Ethiopia
+</p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+let quantity = 1;
+
+
+function increaseQuantity(){
+
+quantity++;
+
+document.getElementById("quantity").innerHTML = quantity;
+
+}
+
+
+function decreaseQuantity(){
+
+if(quantity > 1){
+
+quantity--;
+
+}
+
+document.getElementById("quantity").innerHTML = quantity;
+
+}
+
+</script>
+
+
+</body>
+
+</html>
